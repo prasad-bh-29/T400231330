@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css">
+
+    <title>Users</title>
+</head>
+<body>
+    <div class="container mt-5">
+        <div class="card p-4 shadow-sm">
+            <h3>Users</h3>
+            <table class="table table-bordered table-hover"> 
+                <thead>
+                    <tr>
+                        <th>#</th>
+                        <th>Name</th>
+                        <th>Email</th>
+                        <th>Password</th>
+                    </tr>
+                </thead>
+                <tbody id="userlist"></tbody>
+            </table>
+            <a href="./index.html" class="btn btn-outline-primary">Back</a>
+
+        </div>
+
+    </div>
+    <script>
+        const u=JSON.parse(localStorage.getItem("users")||'[]')
+        userlist.innerHTML=u.map((x,i)=>
+        `
+        <tr>
+            <td>${i+1}</td>
+            <td>${x.name}</td>
+            <td>${x.email}</td>
+            <td>${x.pass}</td>
+        </tr>
+        `).join('')
+    </script>
+</body>
+</html>
